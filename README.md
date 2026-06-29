@@ -1,14 +1,17 @@
 # Wireshark-Lab
 > Wireshark, CMD
 
-Definitions of Key Concepts
+## Business Problem
+
+
+## Definitions of Key Concepts
 - Packets
 - Network Protocol
 - TCP (three way handshake)
 - DNS
 - HTTP vs HTTPS
 
-Essential Dispaly Filters (create table)
+## Essential Dispaly Filters (create table)
 - dns
 - http
 - tcp
@@ -30,6 +33,9 @@ Essential Dispaly Filters (create table)
 
 
 
-## How this solves a problem? 
 
-## Skills gained
+
+# Skills Demonstrated
+
+# Key Takeaways
+
