@@ -1,23 +1,23 @@
-# Wireshark-Lab
+# Network Analysis (Wireshark)
 > Wireshark, CMD
+
+## Overview
 
 ## Business Problem
 
-
 ## Definitions of Key Concepts
-- Packets
-- Network Protocol
-- TCP (three way handshake)
-- DNS
-- HTTP vs HTTPS
+- Packets: 
+- Network Protocols:
+- TCP (three way handshake):
+- DNS:
+- HTTP vs HTTPS:
 
 ## Essential Dispaly Filters (create table)
 - dns
 - http
 - tcp
 
-
-
+# Captures 
 
 ## Frist Capture (DNS Lookup)
 - What is a DNS Lookup? 
@@ -28,12 +28,7 @@
 ## Third Capture (Stream Follow)
 - What is a Stream Follow?
 
-
-
-
-
-
-
+# Common Troubleshooting
 
 # Skills Demonstrated
 
