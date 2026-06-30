@@ -21,17 +21,15 @@ Organizations depend on reliable network communication for websites, cloud servi
 
 # Definitions of Key Concepts
 
-## Definitions of Key Concepts
+Packets - Packets are small pieces of data that travel across a network between devices.
 
-### Packets - Packets are small pieces of data that travel across a network between devices.
+Network Protocols - Network protocols are rules that allow devices to communicate with each other over a network.
 
-### Network Protocols - Network protocols are rules that allow devices to communicate with each other over a network.
+TCP (Three-Way Handshake) - The TCP three-way handshake is a process that establishes a reliable connection between a client and a server before data is sent.
 
-### TCP (Three-Way Handshake) - The TCP three-way handshake is a process that establishes a reliable connection between a client and a server before data is sent.
+DNS - DNS (Domain Name System) translates domain names, like `google.com`, into IP addresses that computers can use.
 
-### DNS - DNS (Domain Name System) translates domain names, like `google.com`, into IP addresses that computers can use.
-
-### HTTP vs HTTPS - HTTP is used to transfer web data, while HTTPS encrypts the data to provide a secure connection.
+HTTP vs HTTPS - HTTP is used to transfer web data, while HTTPS encrypts the data to provide a secure connection.
 
 ---
 
