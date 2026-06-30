@@ -1,204 +1,227 @@
-# Network Analysis (Wireshark)
+# Wireshark Network Analysis Lab
 
-> **Tools Used:** Wireshark, Windows Command Prompt (CMD)
+## Overview
 
----
+This lab demonstrates foundational packet analysis using Wireshark by capturing and analyzing real network traffic. The exercises focus on identifying DNS lookups, examining the TCP three-way handshake, and reconstructing an HTTP conversation using the **Follow TCP Stream** feature.
 
-# Overview
-
-This lab demonstrates how to capture and analyze network traffic using Wireshark. The exercise focuses on understanding common networking protocols, including DNS, TCP, HTTP, and HTTPS. By capturing live traffic and applying display filters, we can observe how devices communicate across a network and gain hands-on experience with network troubleshooting and protocol analysis.
-
-**Screenshot:**
-- Wireshark capturing live network traffic.
+The purpose of this project is to build practical network troubleshooting skills that are commonly used by Network Engineers, SOC Analysts, Security Engineers, and Incident Responders. By analyzing packet captures instead of relying on assumptions, network issues can be diagnosed quickly and accurately.
 
 ---
 
-# Business Problem
+## Business Problem
 
-Organizations depend on reliable network communication for websites, cloud services, email, and business applications. When connectivity issues occur, network administrators and cybersecurity professionals use packet analyzers like Wireshark to identify the root cause of problems. Analyzing network traffic helps troubleshoot DNS failures, connection issues, slow performance, and potential security incidents.
+Modern organizations rely on network connectivity for nearly every business process including web applications, authentication, email, cloud services, APIs, and file transfers. When connectivity issues, slow performance, or security incidents occur, packet analysis provides the evidence needed to determine the root cause.
 
----
+This lab demonstrates how Wireshark can be used to:
 
-# Definitions of Key Concepts
-
-Packets - Packets are small pieces of data that travel across a network between devices.
-
-Network Protocols - Network protocols are rules that allow devices to communicate with each other over a network.
-
-TCP (Three-Way Handshake) - The TCP three-way handshake is a process that establishes a reliable connection between a client and a server before data is sent.
-
-DNS - DNS (Domain Name System) translates domain names, like `google.com`, into IP addresses that computers can use.
-
-HTTP vs HTTPS - HTTP is used to transfer web data, while HTTPS encrypts the data to provide a secure connection.
+- Verify DNS name resolution
+- Validate successful TCP connections
+- Reconstruct application-layer conversations
+- Understand how data travels across a network
+- Build practical troubleshooting skills used in enterprise environments
 
 ---
 
-# Essential Display Filters
+## Key Concepts
 
-| Filter | Description |
-|---------|-------------|
-| `dns` | Displays only DNS traffic |
-| `tcp` | Displays only TCP packets |
-| `http` | Displays HTTP traffic |
-| `tls` | Displays encrypted HTTPS/TLS traffic |
-| `ip.addr == x.x.x.x` | Shows traffic to or from a specific IP address |
-| `tcp.port == 80` | Filters HTTP traffic |
-| `tcp.port == 443` | Filters HTTPS traffic |
+### DNS (Domain Name System)
 
-**Screenshot:**
-- Wireshark using the `dns` and `tcp` display filters.
+DNS translates human-readable domain names into IP addresses. Every connection to a website begins with a DNS lookup.
+
+Example:
+
+```
+linkedin.com
+↓
+150.171.22.12
+```
+
+---
+
+### TCP Three-Way Handshake
+
+Before data can be exchanged, TCP establishes a reliable connection using three packets:
+
+1. SYN
+2. SYN-ACK
+3. ACK
+
+A successful handshake confirms both devices are ready to communicate.
+
+---
+
+### Follow TCP Stream
+
+Individual packets only show small pieces of a conversation.
+
+The **Follow TCP Stream** feature reassembles those packets into a complete request and response, allowing analysts to understand the full communication between client and server.
+
+---
+
+## Important Filters
+
+| Filter | Purpose |
+|---------|----------|
+| `dns` | Displays DNS queries and responses |
+| `tcp` | Shows all TCP traffic |
+| `tcp.flags.syn == 1` | Displays TCP connection attempts |
+| `tcp.flags.reset == 1` | Displays reset (RST) packets |
+| `ip.addr == x.x.x.x` | Filters traffic to/from a specific IP |
+| `ip.src == x.x.x.x` | Filters traffic from a specific source |
+| `tcp.port == 80` | HTTP traffic |
+| `tcp.port == 443` | HTTPS traffic |
+| `http.request` | Displays HTTP requests |
 
 ---
 
 # Captures
 
-## First Capture (DNS Lookup)
+## 1. DNS Lookup Capture
 
-### What is a DNS Lookup?
+### File
 
-A DNS lookup is the process of converting a domain name into an IP address. When a user visits a website, the computer sends a DNS query to a DNS server requesting the IP address associated with the domain. The DNS server responds with the appropriate IP address, allowing the browser to establish a connection.
+`1 - DNS A Record Capture (linkedin.com).pcapng`
 
-### Steps
+### Objective
 
-1. Start a Wireshark capture.
-2. Apply the display filter:
-   ```
-   dns
-   ```
-3. Open Command Prompt.
-4. Run:
-   ```
-   nslookup google.com
-   ```
-5. Observe the DNS Query and DNS Response packets.
-
-**Screenshots:**
-
-- Command Prompt showing the `nslookup` command.
-- DNS Query packet.
-- DNS Response packet.
-- Packet Details showing the Answer section.
-
----
-
-## Second Capture (TCP Handshake)
-
-### What is a TCP Handshake?
-
-The TCP three-way handshake establishes a reliable connection before any data is exchanged.
-
-Sequence:
+Capture a DNS query and response generated by running:
 
 ```
-Client                 Server
-
-SYN ------------------>
-
-     <------------- SYN, ACK
-
-ACK ------------------>
+nslookup linkedin.com
 ```
 
-### Steps
+### Analysis
 
-1. Start a new capture.
-2. Open a website or connect to a server.
-3. Apply the filter:
-   ```
-   tcp
-   ```
-4. Locate the SYN, SYN-ACK, and ACK packets.
+The capture shows the workstation requesting the IPv4 address for **linkedin.com** from a DNS server.
 
-**Screenshots:**
+The DNS response returned:
 
-- Packet list showing the three handshake packets.
-- Packet Details highlighting the TCP Flags.
-- Expanded TCP header showing the SYN and ACK flags.
+```
+150.171.22.12
+```
 
----
+which matched the result shown in Command Prompt.
 
-## Third Capture (Stream Follow)
+This demonstrates how DNS resolves hostnames before any web connection can occur.
 
-### What is Stream Follow?
+### What I Learned
 
-Follow TCP Stream reconstructs an entire conversation between two hosts by combining multiple TCP packets into readable application-layer data.
-
-This feature helps analysts:
-
-- View complete HTTP requests and responses.
-- Analyze client/server conversations.
-- Troubleshoot application communication.
-
-### Steps
-
-1. Select a TCP packet.
-2. Right-click the packet.
-3. Select:
-   ```
-   Follow
-   →
-   TCP Stream
-   ```
-4. Review the reconstructed conversation.
-
-**Screenshots:**
-
-- Right-click menu showing **Follow → TCP Stream**.
-- Follow TCP Stream window.
-- HTTP request/response (if available).
+- Every web connection begins with DNS.
+- DNS traffic is easy to isolate using the `dns` filter.
+- Matching DNS queries and responses confirms successful name resolution.
 
 ---
 
-# Common Troubleshooting
+## 2. TCP Three-Way Handshake
 
-| Problem | Solution |
-|----------|----------|
-| No packets captured | Verify the correct network adapter is selected. |
-| No DNS packets | Generate traffic using `nslookup`. |
-| No HTTP packets | Most websites use HTTPS; use the `tls` filter instead. |
-| Too many packets | Apply display filters such as `dns`, `tcp`, or `http`. |
-| TCP handshake not visible | Start capturing before opening the website or application. |
+### File
+
+`2 - TCP Handshake (neverssl.com).pcapng`
+
+### Objective
+
+Observe a successful TCP connection to an HTTP website.
+
+Before capturing, the destination IP was identified using:
+
+```
+nslookup neverssl.com
+```
+
+Result:
+
+```
+34.223.124.45
+```
+
+The capture demonstrates:
+
+- SYN
+- SYN-ACK
+- ACK
+
+These packets establish a reliable TCP session before application data is exchanged.
+
+### What I Learned
+
+- TCP requires a successful handshake before communication begins.
+- Missing SYN-ACK packets often indicate connectivity problems.
+- Packet flags quickly identify the health of a connection.
+
+---
+
+## 3. Follow TCP Stream
+
+### File
+
+`3 - Following a Full TCP Stream (HTTP & neverssl.com).pcapng`
+
+### Objective
+
+Use **Follow → TCP Stream** to reconstruct an HTTP conversation.
+
+Rather than viewing individual packets separately, Wireshark rebuilt the complete communication between the client and server.
+
+This provided a readable view of:
+
+- HTTP requests
+- HTTP responses
+- Headers
+- Complete application conversation
+
+### What I Learned
+
+- Individual packets only show fragments of communication.
+- TCP Stream reconstruction provides context for investigations.
+- This feature is valuable during troubleshooting and incident response.
 
 ---
 
 # Skills Demonstrated
 
-- Network packet capture using Wireshark
-- Network traffic analysis
-- DNS request and response analysis
-- TCP three-way handshake analysis
-- Applying Wireshark display filters
-- Following TCP streams
-- Protocol identification
-- Basic network troubleshooting
-- Packet inspection and analysis
+- Live packet capture using Wireshark
+- DNS analysis
+- TCP session analysis
+- TCP three-way handshake identification
+- Packet filtering using display filters
+- Network troubleshooting
+- Packet inspection
+- HTTP traffic analysis
+- TCP Stream reconstruction
+- Saving and organizing packet captures
+- Basic incident response workflow
+- Documentation of network analysis findings
 
 ---
 
 # Key Takeaways
 
-- Wireshark captures and analyzes live network traffic.
-- DNS resolves domain names into IP addresses before communication begins.
-- TCP establishes reliable connections using the three-way handshake.
-- Display filters simplify packet analysis by isolating specific protocols.
-- Following TCP streams reconstructs complete conversations between hosts.
-- Packet analysis is an essential skill for network administrators, IT professionals, and cybersecurity analysts.
+- DNS resolution is the first step in nearly every network connection.
+- Display filters make large packet captures manageable.
+- TCP handshakes verify successful communication between hosts.
+- Following TCP Streams reconstructs complete network conversations.
+- Packet analysis provides evidence-based troubleshooting instead of guesswork.
+- Wireshark is an essential tool for Network Engineers, SOC Analysts, Security Engineers, and Incident Responders.
 
 ---
 
-# Screenshot Checklist
+# Repository Structure
 
-- ✅ Wireshark capturing live traffic
-- ✅ Packet Details pane expanded
-- ✅ Command Prompt showing `nslookup google.com`
-- ✅ DNS Query packet
-- ✅ DNS Response packet
-- ✅ `dns` display filter
-- ✅ TCP SYN packet
-- ✅ TCP SYN-ACK packet
-- ✅ TCP ACK packet
-- ✅ TCP Flags expanded
-- ✅ `tcp` display filter
-- ✅ Right-click menu showing **Follow → TCP Stream**
-- ✅ Follow TCP Stream window
-- ✅ HTTP request/response or TLS stream (optional)
+```
+Wireshark-Lab/
+│
+├── README.md
+│
+├── WireShark Captures/
+│   ├── 1 - DNS A Record Capture (linkedin.com).pcapng
+│   ├── 1.1 - LinkedIn (CMD - Capturing a DNS Lookup).txt
+│   ├── 2 - TCP Handshake (neverssl.com).pcapng
+│   ├── 2.1 - NeverSSL (CMD - DNS Lookup to get IP).txt
+│   └── 3 - Following a Full TCP Stream (HTTP & neverssl.com).pcapng
+```
+
+---
+
+# Portfolio Summary
+
+This project demonstrates practical network analysis using Wireshark by capturing DNS traffic, validating TCP session establishment, and reconstructing HTTP conversations. These exercises reinforce core networking concepts while providing hands-on experience with packet inspection, troubleshooting, and protocol analysis that are directly applicable to Network Engineering, Cybersecurity, and SOC Analyst roles.
