@@ -21,73 +21,17 @@ Organizations depend on reliable network communication for websites, cloud servi
 
 # Definitions of Key Concepts
 
-## Packets
+## Definitions of Key Concepts
 
-Packets are small units of data transmitted across a network. Each packet contains header information (such as source IP, destination IP, protocol, and sequencing information) along with the payload, which is the actual data being transmitted.
+### Packets - Packets are small pieces of data that travel across a network between devices.
 
-**Screenshot:**
-- A captured packet with the Packet Details pane expanded.
+### Network Protocols - Network protocols are rules that allow devices to communicate with each other over a network.
 
----
+### TCP (Three-Way Handshake) - The TCP three-way handshake is a process that establishes a reliable connection between a client and a server before data is sent.
 
-## Network Protocols
+### DNS - DNS (Domain Name System) translates domain names, like `google.com`, into IP addresses that computers can use.
 
-Network protocols are standardized rules that define how devices communicate over a network. Common protocols include:
-
-- **DNS** – Resolves domain names into IP addresses.
-- **TCP** – Provides reliable, connection-oriented communication.
-- **HTTP** – Transfers web pages and web content.
-- **HTTPS** – Secure, encrypted version of HTTP.
-
----
-
-## TCP (Three-Way Handshake)
-
-Before data can be exchanged using TCP, a reliable connection must be established through a three-way handshake.
-
-The process consists of:
-
-1. **SYN** – The client requests a connection.
-2. **SYN-ACK** – The server acknowledges the request.
-3. **ACK** – The client confirms the connection.
-
-Once these three packets have been exchanged, communication can begin.
-
-**Screenshot:**
-- SYN, SYN-ACK, and ACK packets highlighted in Wireshark.
-
----
-
-## DNS
-
-The Domain Name System (DNS) translates human-readable domain names into IP addresses that computers use for communication.
-
-For example:
-
-```
-google.com
-↓
-
-142.250.x.x
-```
-
-Without DNS, users would need to remember IP addresses instead of website names.
-
-**Screenshot:**
-- DNS Query and DNS Response packets.
-
----
-
-## HTTP vs HTTPS
-
-| HTTP | HTTPS |
-|------|-------|
-| Uses Port 80 | Uses Port 443 |
-| Data is unencrypted | Data is encrypted using TLS |
-| Less secure | More secure |
-| Suitable for public content | Suitable for secure communications |
-
-HTTPS encrypts data exchanged between a client and server, protecting sensitive information from interception.
+### HTTP vs HTTPS - HTTP is used to transfer web data, while HTTPS encrypts the data to provide a secure connection.
 
 ---
 
