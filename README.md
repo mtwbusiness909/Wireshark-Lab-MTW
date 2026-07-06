@@ -205,23 +205,6 @@ This provided a readable view of:
 
 ---
 
-# Repository Structure
-
-```
-Wireshark-Lab/
-│
-├── README.md
-│
-├── WireShark Captures/
-│   ├── 1 - DNS A Record Capture (linkedin.com).pcapng
-│   ├── 1.1 - LinkedIn (CMD - Capturing a DNS Lookup).txt
-│   ├── 2 - TCP Handshake (neverssl.com).pcapng
-│   ├── 2.1 - NeverSSL (CMD - DNS Lookup to get IP).txt
-│   └── 3 - Following a Full TCP Stream (HTTP & neverssl.com).pcapng
-```
-
----
-
 # Portfolio Summary
 
 This project demonstrates practical network analysis using Wireshark by capturing DNS traffic, validating TCP session establishment, and reconstructing HTTP conversations. These exercises reinforce core networking concepts while providing hands-on experience with packet inspection, troubleshooting, and protocol analysis that are directly applicable to Network Engineering, Cybersecurity, and SOC Analyst roles.
