@@ -89,7 +89,7 @@ Capture a DNS query and response.
 Step 1 
 - Run Wireshark before typing in anything in CMD
 
-![image alt](https://github.com/mtwbusiness909/Wireshark-Lab-MTW/blob/712bd0be6d906b0643f08cf3d9c423bc9480878c/1.%20DNS%20A%20Record%20Capture/0.5%20-%20Wireshark.png)
+![image alt](https://github.com/mtwbusiness909/Wireshark-Lab-MTW/blob/d3f73b776ba988fe7c17e497acc7b4365d6851c6/1.%20DNS%20A%20Record%20Capture/0.5%20-%20Wireshark.png)
 
 Step 2 
 - in CMD, type in nslookup linkedin.com
