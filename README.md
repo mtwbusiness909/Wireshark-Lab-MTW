@@ -216,6 +216,29 @@ Use **Follow → TCP Stream** to reconstruct an HTTP conversation.
 
 Rather than viewing individual packets separately, Wireshark rebuilt the complete communication between the client and server.
 
+
+Step 1 - HTTP - Apply Filter 
+![image alt](https://github.com/mtwbusiness909/Wireshark-Lab-MTW/blob/4b3ef64cf85007539955ec73c0cb0d7f56ea4d59/3.%20TCP%20Stream/3.1%20-%20HTTP%20-%20Apply%20Filter.png)
+
+Step 2 - HTTP - Filter
+![image alt](https://github.com/mtwbusiness909/Wireshark-Lab-MTW/blob/4b3ef64cf85007539955ec73c0cb0d7f56ea4d59/3.%20TCP%20Stream/3.2%20-%20HTTP%20-%20Filter.png)
+
+Step 3 - HTTP - Hit Enter
+![image alt](https://github.com/mtwbusiness909/Wireshark-Lab-MTW/blob/4b3ef64cf85007539955ec73c0cb0d7f56ea4d59/3.%20TCP%20Stream/3.3%20-%20HTTP%20-%20Hit%20Enter.png)
+
+Step 4 - HTTP - Filter Results
+![image alt](https://github.com/mtwbusiness909/Wireshark-Lab-MTW/blob/4b3ef64cf85007539955ec73c0cb0d7f56ea4d59/3.%20TCP%20Stream/3.4%20-%20HTTP%20-%20Filter%20Results.png)
+
+Step 5 - Selecting TCP Stream 
+![image alt](https://github.com/mtwbusiness909/Wireshark-Lab-MTW/blob/4b3ef64cf85007539955ec73c0cb0d7f56ea4d59/3.%20TCP%20Stream/3.5%20-%20Selecting%20TCP%20Stream.png)
+
+Step 6 - Viewing TCP Stream from neversll.com.pdf
+-- add TCP Stream PDF --
+
+[ EXPLANATION OF TCP STREAM ABOVE ] 
+
+
+
 This provided a readable view of:
 
 - HTTP requests
