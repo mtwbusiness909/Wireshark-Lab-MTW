@@ -173,6 +173,21 @@ Result:
 34.223.124.45
 ```
 
+Step 1 - CMD NeverSSL DNS Lookup to get IP
+![image alt](https://github.com/mtwbusiness909/Wireshark-Lab-MTW/blob/a3834866c958f9dd2cbfce79573e12efdfbdc3c2/2.%20TCP%20Handshake/2.1%20-%20CMD%20NeverSSL%20DNS%20Lookup%20to%20get%20IP%20-%20SC.png)
+
+Step 2 - TCP & IP Address - Apply Filter
+![image alt](https://github.com/mtwbusiness909/Wireshark-Lab-MTW/blob/a3834866c958f9dd2cbfce79573e12efdfbdc3c2/2.%20TCP%20Handshake/2.2%20-%20TCP%20%26%20IP%20Address%20-%20Apply%20Filter.png)
+
+Step 3 - TCP & IP Address - Filter
+![image alt](https://github.com/mtwbusiness909/Wireshark-Lab-MTW/blob/a3834866c958f9dd2cbfce79573e12efdfbdc3c2/2.%20TCP%20Handshake/2.3%20-%20TCP%20%26%20IP%20Address%20-%20Filter.png)
+
+Step 4 - TCP & IP Address - Hit Enter 
+![image alt](https://github.com/mtwbusiness909/Wireshark-Lab-MTW/blob/a3834866c958f9dd2cbfce79573e12efdfbdc3c2/2.%20TCP%20Handshake/2.4%20-%20TCP%20%26%20IP%20Address%20-%20Hit%20Enter.png)
+
+Step 5 - Three Way Handshake - Filter Results
+![image alt](https://github.com/mtwbusiness909/Wireshark-Lab-MTW/blob/a3834866c958f9dd2cbfce79573e12efdfbdc3c2/2.%20TCP%20Handshake/2.5%20-%20Three%20Way%20Handshake%20-%20Filter%20Results.png)
+
 The capture demonstrates:
 
 - SYN
