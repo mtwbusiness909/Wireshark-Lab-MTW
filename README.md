@@ -233,10 +233,12 @@ Step 5 - Selecting TCP Stream
 ![image alt](https://github.com/mtwbusiness909/Wireshark-Lab-MTW/blob/4b3ef64cf85007539955ec73c0cb0d7f56ea4d59/3.%20TCP%20Stream/3.5%20-%20Selecting%20TCP%20Stream.png)
 
 Step 6 - Viewing TCP Stream from neversll.com.pdf
--- add TCP Stream PDF --
+![image alt](https://github.com/mtwbusiness909/Wireshark-Lab-MTW/blob/eaf7e90a9b06abab5a06aa3044318b0fe89f24d8/3.%20TCP%20Stream/4.1.png)
+
+![image alt](https://github.com/mtwbusiness909/Wireshark-Lab-MTW/blob/eaf7e90a9b06abab5a06aa3044318b0fe89f24d8/3.%20TCP%20Stream/4.2.png)
+
 
 [ EXPLANATION OF TCP STREAM ABOVE ] 
-
 
 
 This provided a readable view of:
