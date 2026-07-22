@@ -238,7 +238,7 @@ Step 6 - Viewing TCP Stream from neversll.com.pdf
 ![image alt](https://github.com/mtwbusiness909/Wireshark-Lab-MTW/blob/eaf7e90a9b06abab5a06aa3044318b0fe89f24d8/3.%20TCP%20Stream/4.2.png)
 
 
-[ EXPLANATION OF TCP STREAM ABOVE ] 
+This capture demonstrates Wireshark's Follow TCP Stream feature, which reconstructs an entire TCP conversation between two hosts into a single chronological data stream. Rather than examining individual packets, the stream displays the application data exactly as it was exchanged during the session. The red text represents data transmitted from the client to the server, while the blue text represents responses sent from the server back to the client. This feature is invaluable during network troubleshooting, protocol analysis, and cybersecurity investigations because it allows analysts to easily follow complete client-server communications and identify how requests and responses relate to one another.
 
 
 This provided a readable view of:
